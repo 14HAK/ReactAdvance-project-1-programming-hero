@@ -42,7 +42,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/personal',
-        element: <Personal></Personal>,
+        element:(
+        <PrivateRoute>
+          <Personal></Personal>
+        </PrivateRoute>
+         ),
       },
     ],
   },
