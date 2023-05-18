@@ -57,7 +57,7 @@ const Header = () => {
             </NavLink>
 
             <div className='ml-5'>
-              {user.uid && (
+              {user && (
                 <NavLink
                   className="className='mr-5 cursor-pointer text-[#ffca5c] hover:text-[#ffffff] hover:underline'"
                   to='/personal'
@@ -67,7 +67,7 @@ const Header = () => {
               )}
             </div>
           </nav>
-          {user.uid ? (
+          {user ? (
             <>
               <button
                 onClick={handleLogOut}

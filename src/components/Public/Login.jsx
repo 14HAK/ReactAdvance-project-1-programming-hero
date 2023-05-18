@@ -1,9 +1,12 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { MyContext } from '../../context/Context';
 
 const Login = () => {
   const { logIn, googleLogIn } = useContext(MyContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || '/';
 
   const handleLogIn = (event) => {
     event.preventDefault();
@@ -20,6 +23,7 @@ const Login = () => {
         console.log(error);
       })
       .finally(() => {
+        navigate(from, { replace: true });
         form.reset();
       });
   };
@@ -31,6 +35,9 @@ const Login = () => {
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        navigate(from, { replace: true });
       });
   };
 

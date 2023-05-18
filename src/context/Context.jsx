@@ -11,10 +11,10 @@ import {
 
 import app from '../firebaseConfig/firebase.config';
 
-export const MyContext = createContext('');
+export const MyContext = createContext(null);
 // eslint-disable-next-line react/prop-types
 const Context = ({ children }) => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const auth = getAuth(app);
